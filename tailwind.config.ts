@@ -6,11 +6,11 @@ export default {
     "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
   ],
   plugins: [
-    daisyui
+    daisyui,
   ],
   daisyui: {
     themes: [
-      "lemonade"
+      "lemonade",
     ],
   },
 } satisfies Config;

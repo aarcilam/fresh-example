@@ -11,7 +11,7 @@ export const handler: Handlers = {
   },
 };
 
-export default function Home(props:PageProps) {
+export default function Home(props: PageProps) {
   const count = useSignal(3);
   return (
     <div class="px-4 py-8 mx-auto bg-[#86efac]">
@@ -24,7 +24,7 @@ export default function Home(props:PageProps) {
           alt="the Fresh logo: a sliced lemon dripping with juice"
         />
         <ul>
-          {props.data.users.map((user:User) => (
+          {props.data.users.map((user: User) => (
             <li key={user.id}>{user.name} - {user.email}</li>
           ))}
         </ul>
