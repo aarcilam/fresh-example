@@ -13,6 +13,9 @@ VOLUME ["/app/db"]
 # Permite el acceso a la red y lectura/escritura de archivos
 RUN deno cache main.ts
 
+# build 
+RUN deno task build
+
 # Expone el puerto de la aplicación
 EXPOSE 8000
 
