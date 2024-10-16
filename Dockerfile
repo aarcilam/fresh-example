@@ -7,6 +7,9 @@ WORKDIR /app
 # Copia el archivo de configuración y las dependencias
 COPY . .
 
+# Declarar un volumen para la base de datos SQLite
+VOLUME ["/app/db"]
+
 # Permite el acceso a la red y lectura/escritura de archivos
 RUN deno cache main.ts
 
