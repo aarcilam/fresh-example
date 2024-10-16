@@ -17,6 +17,16 @@ db.exec(
   `,
 );
 
+// Crear una tabla si no existe
+db.exec(
+  `
+    CREATE TABLE IF NOT EXISTS todo (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      test TEXT NOT NULL
+    );
+  `,
+);
+
 export default db;
 
 // Cerrar la conexión cuando la aplicación termina

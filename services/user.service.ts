@@ -1,8 +1,8 @@
 import db from "../config/db.ts";
 import { User } from "../interfaces/User.interface.ts";
 
-export function getUsers() {
-  let users;
+export function getUsers(): User[] {
+  let users: User[] = [];
 
   try {
     const stmt = db.prepare("SELECT * FROM users");
