@@ -11,9 +11,9 @@ export const handler: Handlers = {
   },
   async POST(req, ctx) {
     const form = await req.formData();
-    const email = form.get("email")?.toString();
-    const name = form.get("name")?.toString();
-    const user :User = {email, name}
+    const email = form.get("email")?.toString() || "";
+    const name = form.get("name")?.toString() || "";
+    const user: User = { email, name };
     // Add email to list.
     createUser(user);
     // Redirect user to thank you page.
@@ -59,6 +59,7 @@ export default function Home(props: PageProps) {
               className="grow"
               placeholder="Email"
               name="email"
+              required
             />
           </label>
           <label className="input input-bordered flex items-center gap-2">
@@ -75,6 +76,7 @@ export default function Home(props: PageProps) {
               className="grow"
               placeholder="Username"
               name="name"
+              required
             />
           </label>
           <button type="submit">Subscribe</button>
