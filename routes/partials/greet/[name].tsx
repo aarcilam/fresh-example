@@ -7,10 +7,10 @@ export const config: RouteConfig = {
 export default function Greet(props: PageProps) {
   return (
     <>
-      <Partial name="greet">
+      <Partial name="greet" mode="replace">
         Greetings !! {props.params.name} !!
       </Partial>
-      <Partial name="greet-2">
+      <Partial name="greet-2"  mode="append">
         {props.params.name.toUpperCase()} !!
       </Partial>
     </>
