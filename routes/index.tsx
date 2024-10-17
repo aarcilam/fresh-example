@@ -3,13 +3,14 @@ import Counter from "../islands/Counter.tsx";
 import { HandlerContext, Handlers, PageProps } from "$fresh/server.ts";
 import { createUser, getUsers } from "../services/user.service.ts";
 import type { User } from "../interfaces/User.interface.ts";
+import { Partial } from "$fresh/runtime.ts";
 
 export const handler: Handlers = {
   GET(_req: Request, ctx: HandlerContext) {
     const users = getUsers();
     return ctx.render({ users });
   },
-  async POST(req, ctx) {
+  async POST(req) {
     const form = await req.formData();
     const email = form.get("email")?.toString() || "";
     const name = form.get("name")?.toString() || "";
@@ -38,6 +39,13 @@ export default function Home(props: PageProps) {
           height="128"
           alt="the Fresh logo: a sliced lemon dripping with juice"
         />
+        <aside>
+        <button class="btn" f-partial="/partials/greet/hola">hola</button>
+        <button class="btn" f-partial="/partials/greet/hi">hi</button>
+      </aside>
+      <Partial name="greet">
+        Partials
+      </Partial>
         <ul>
           {props.data.users.map((user: User) => (
             <li key={user.id}>{user.name} - {user.email}</li>
@@ -86,6 +94,9 @@ export default function Home(props: PageProps) {
           Try updating this message in the
           <code class="mx-2">./routes/index.tsx</code> file, and refresh.
         </p>
+        <Partial name="greet-2">
+        Partials
+      </Partial>
         <Counter count={count} />
       </div>
     </div>
